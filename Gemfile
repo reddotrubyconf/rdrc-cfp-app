@@ -18,10 +18,17 @@ gem "jquery-rails"
 
 gem "turbolinks"
 
+gem "omniauth"
+gem "omniauth-github"
+
 group :test do
   gem "rspec-rails"
   gem "factory_girl_rails"
-  gem "shoulda-matchers"
+  gem "shoulda-matchers", require: false
+end
+
+group :development, :test do
+  gem "dotenv-rails"
 end
 
 group :development do

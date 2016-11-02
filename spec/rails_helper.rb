@@ -12,6 +12,8 @@ require File.expand_path("../../config/environment", __FILE__)
 require "rspec/rails"
 require "shoulda/matchers"
 
+require_relative "./support/session_helpers"
+
 # Checks for pending migrations before tests are run.
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.maintain_test_schema!
@@ -24,6 +26,8 @@ RSpec.configure do |config|
   config.mock_with :rspec do |mocks|
     mocks.verify_partial_doubles = true
   end
+
+  config.include SessionHelpers, type: :controller
 
   config.infer_base_class_for_anonymous_controllers = false
   config.use_transactional_fixtures = true
