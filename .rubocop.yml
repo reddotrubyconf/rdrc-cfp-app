@@ -28,7 +28,7 @@ Style/StringLiterals:
   EnforcedStyle: double_quotes
 
 Metrics/LineLength:
-  Enabled: 120
+  Max: 120
 
 Rails:
   Enabled: true
