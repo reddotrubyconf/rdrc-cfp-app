@@ -21,4 +21,9 @@ ActiveRecord::Schema.define(version: 20161103123141) do
     t.integer "status",   default: 1, null: false
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string "name",  null: false
+    t.string "email", null: false
+  end
+
 end
