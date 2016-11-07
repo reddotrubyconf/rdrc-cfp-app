@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module SessionHelpers
   def sign_in(user)
     subject.session[:user_id] = user.id

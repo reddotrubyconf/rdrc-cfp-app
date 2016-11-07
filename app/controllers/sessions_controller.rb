@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     redirect_to root_path
   end
 
-  # GET /signout
+  # DELETE /auth/github
   def destroy
     sign_out
 
