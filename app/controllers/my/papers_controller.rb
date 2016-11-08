@@ -1,6 +1,13 @@
 # frozen_string_literal: true
 
-class PapersController < ApplicationController
+class My::PapersController < ApplicationController
+  before_action :authenticate!
+
+  # GET /papers
+  def index
+    @papers = current_user.papers.all
+  end
+
   # GET /papers/new
   def new
     @paper = Paper.new
@@ -8,10 +15,10 @@ class PapersController < ApplicationController
 
   # POST /papers/create
   def create
-    @paper = Paper.new(paper_params)
+    @paper = current_user.papers.build(paper_params)
 
     if @paper.save
-      redirect_to paper_path(@paper)
+      redirect_to my_paper_path(@paper)
     else
       flash[:error] = @paper.errors.full_messages.to_sentence.capitalize
       render :new

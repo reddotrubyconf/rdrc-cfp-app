@@ -7,6 +7,16 @@ FactoryGirl.define do
     name "Anakin Skywalker"
     email
 
+    factory :with_papers do
+      transient do
+        paper_count 1
+      end
+
+      after(:create) do |user, evaluator|
+        create_list :paper, paper_count, user: user
+      end
+    end
+
     trait :invalid do
       name ""
     end

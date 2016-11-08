@@ -2,7 +2,19 @@
 
 require "rails_helper"
 
-RSpec.describe PapersController, type: :controller do
+RSpec.describe My::PapersController, type: :controller do
+  let(:user) { FactoryGirl.create(:user) }
+
+  before do
+    sign_in(user)
+  end
+
+  describe "#index" do
+    before { get :index }
+
+    it { expect(response).to have_http_status(:success) }
+  end
+
   describe "#new" do
     before { get :new }
 
