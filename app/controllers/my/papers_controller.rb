@@ -3,6 +3,11 @@
 class My::PapersController < ApplicationController
   before_action :authenticate!
 
+  # GET /papers
+  def index
+    @papers = Paper.all
+  end
+
   # GET /papers/new
   def new
     @paper = Paper.new

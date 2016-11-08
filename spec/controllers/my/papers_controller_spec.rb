@@ -9,6 +9,12 @@ RSpec.describe My::PapersController, type: :controller do
     sign_in(user)
   end
 
+  describe "#index" do
+    before { get :index }
+
+    it { expect(response).to have_http_status(:success) }
+  end
+
   describe "#new" do
     before { get :new }
 
