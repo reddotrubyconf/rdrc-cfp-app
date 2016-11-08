@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161103123141) do
+ActiveRecord::Schema.define(version: 20161108153805) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 20161103123141) do
     t.string  "title",                null: false
     t.text    "abstract",             null: false
     t.integer "status",   default: 1, null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_papers_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -26,4 +28,5 @@ ActiveRecord::Schema.define(version: 20161103123141) do
     t.string "email", null: false
   end
 
+  add_foreign_key "papers", "users"
 end

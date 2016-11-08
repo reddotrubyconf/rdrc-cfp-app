@@ -5,7 +5,7 @@ class My::PapersController < ApplicationController
 
   # GET /papers
   def index
-    @papers = Paper.all
+    @papers = current_user.papers.all
   end
 
   # GET /papers/new
@@ -15,7 +15,7 @@ class My::PapersController < ApplicationController
 
   # POST /papers/create
   def create
-    @paper = Paper.new(paper_params)
+    @paper = current_user.papers.build(paper_params)
 
     if @paper.save
       redirect_to my_paper_path(@paper)
