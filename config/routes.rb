@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  root "papers#new"
+  root "my/papers#new"
 
-  resources :papers, only: [:new, :create, :show]
+  namespace :my do
+    resources :papers, only: [:new, :create, :show]
+  end
 
   scope :auth do
     resource :github, only: :none do

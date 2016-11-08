@@ -4,7 +4,7 @@
 
       <h1>Paper submission</h1>
 
-      <%= form_for(@paper) do |f| %>
+      <%= form_for @paper, url: my_papers_path do |f| %>
 
         <div class="form-group">
           <%= f.label :title %>
