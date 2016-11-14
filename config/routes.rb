@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   root "my/papers#new"
 
   namespace :my do
-    resources :papers, only: [:new, :create, :index, :show, :edit, :update]
+    resources :papers,  only: [:new, :create, :index, :show, :edit, :update]
+    resource  :profile, only: [:show]
   end
 
   scope :auth do

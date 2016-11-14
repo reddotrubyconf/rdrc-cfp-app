@@ -14,6 +14,7 @@
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
           <li><%= link_to "My papers", my_papers_path %></li>
+          <li><%= link_to "My profile", my_profile_path %></li>
           <li><%= link_to "Sign out", sign_out_github_path, method: :delete %></li>
         <% else %>
           <li><%= link_to "Sign in", sign_in_github_path %></li>

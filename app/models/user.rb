@@ -8,8 +8,9 @@ class User < ApplicationRecord
 
   def self.create_from_auth!(auth)
     create! do |user|
-      user.name  = auth.dig(:info, :name)
-      user.email = auth.dig(:info, :email)
+      user.name       = auth.dig(:info, :name)
+      user.email      = auth.dig(:info, :email)
+      user.avatar_url = auth.dig(:extra, :raw_info, :avatar_url)
     end
   end
 end
