@@ -37,10 +37,35 @@ RSpec.describe My::PapersController, type: :controller do
   end
 
   describe "#show" do
-    let(:paper) { FactoryGirl.create(:paper) }
+    let(:paper) { FactoryGirl.create(:paper, user: user) }
 
     before { get :show, params: { id: paper.id } }
 
     it { expect(response).to have_http_status(:success) }
+  end
+
+  describe "#edit" do
+    let(:paper) { FactoryGirl.create(:paper, user: user) }
+
+    before { get :edit, params: { id: paper.id } }
+
+    it { expect(response).to have_http_status(:success) }
+  end
+
+  describe "#update" do
+    let(:paper) { FactoryGirl.create(:paper, user: user) }
+
+    context "with valid params" do
+      before { patch :update, params: { id: paper.id, paper: FactoryGirl.attributes_for(:paper) } }
+
+      it { expect(response).to have_http_status(:found) }
+    end
+
+    context "with invalid params" do
+      before { patch :update, params: { id: paper.id, paper: FactoryGirl.attributes_for(:paper, :invalid) } }
+
+      it { is_expected.to set_flash[:error] }
+      it { expect(response).to have_http_status(:success) }
+    end
   end
 end

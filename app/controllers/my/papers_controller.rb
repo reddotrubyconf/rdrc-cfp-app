@@ -30,6 +30,23 @@ class My::PapersController < ApplicationController
     @paper = find_paper
   end
 
+  # GET /papers/:id/edit
+  def edit
+    @paper = find_paper
+  end
+
+  # PATCH /papers/:id
+  def update
+    @paper = find_paper
+
+    if @paper.update(paper_params)
+      redirect_to my_paper_path(@paper)
+    else
+      flash[:error] = @paper.errors.full_messages.to_sentence.capitalize
+      render :edit
+    end
+  end
+
   private
 
   def paper_params
@@ -41,6 +58,6 @@ class My::PapersController < ApplicationController
   end
 
   def find_paper
-    Paper.find(params[:id])
+    current_user.papers.find(params[:id])
   end
 end
