@@ -33,7 +33,11 @@ class My::PapersController < ApplicationController
   private
 
   def paper_params
-    params.require(:paper).permit(:title, :abstract)
+    params.require(:paper).permit(:title, :abstract).merge(status: paper_status)
+  end
+
+  def paper_status
+    params[:draft] ? :draft : :submitted
   end
 
   def find_paper
