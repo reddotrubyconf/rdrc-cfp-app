@@ -14,4 +14,10 @@ RSpec.describe My::ProfilesController, type: :controller do
 
     it { expect(response).to have_http_status(:success) }
   end
+
+  describe "#edit" do
+    before { get :edit }
+
+    it { expect(response).to have_http_status(:success) }
+  end
 end

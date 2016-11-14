@@ -7,12 +7,19 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">RDRC'17 CFP</a>
+      <%= link_to "RDRC'17 CFP", root_path, class: "navbar-brand" %>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
+          <li>
+            <div class="navbar-form">
+              <div class="form-group">
+                <%= link_to "New paper", new_my_paper_path, class: "btn btn-success" %>
+              </div>
+            </div>
+          </li>
           <li><%= link_to "My papers", my_papers_path %></li>
           <li><%= link_to "My profile", my_profile_path %></li>
           <li><%= link_to "Sign out", sign_out_github_path, method: :delete %></li>

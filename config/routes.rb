@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  root "my/papers#new"
+  root "my/papers#index"
 
   namespace :my do
     resources :papers,  only: [:new, :create, :index, :show, :edit, :update]
-    resource  :profile, only: [:show]
+    resource  :profile, only: [:show, :edit, :update]
   end
 
   scope :auth do
