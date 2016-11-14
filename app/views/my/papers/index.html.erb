@@ -6,6 +6,7 @@
       <% @papers.each do |paper| %>
         <h2><%= paper.title %></h2>
         <span class="label label-primary"><%= paper.status %></span>
+        <%= link_to "Edit", edit_my_paper_path(paper), class: "btn btn-default"%>
       <% end %>
     </div>
   </div>

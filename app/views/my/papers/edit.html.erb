@@ -2,9 +2,9 @@
   <div class="row">
     <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
 
-      <h1>New paper</h1>
+      <h1>Edit paper</h1>
 
-      <%= form_for @paper, url: my_papers_path do |f| %>
+      <%= form_for @paper, url: my_paper_path(@paper), method: :patch do |f| %>
 
         <div class="form-group">
           <%= f.label :title %>
@@ -17,8 +17,12 @@
         </div>
 
         <div class="form-controls text-right">
-          <%= f.submit "Save as draft", name: "draft", class: "btn btn-default" %>
-          <%= f.submit "Submit for review", name: "submit", class: "btn btn-primary" %>
+          <% if @paper.draft? %>
+            <%= f.submit "Save as draft", name: "draft", class: "btn btn-default" %>
+            <%= f.submit "Submit for review", name: "submit", class: "btn btn-primary" %>
+          <% else %>
+            <%= f.submit "Save changes", name: "submit", class: "btn btn-primary" %>
+          <% end %>
         </div>
       <% end %>
     </div>
