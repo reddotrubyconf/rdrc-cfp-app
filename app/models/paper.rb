@@ -10,4 +10,8 @@ class Paper < ApplicationRecord
   belongs_to :user, inverse_of: :papers
 
   enum status: [:draft, :submitted, :accepted, :rejected, :withdrawn].freeze
+
+  def editable?
+    draft? || submitted?
+  end
 end
