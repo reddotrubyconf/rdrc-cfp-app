@@ -21,6 +21,7 @@
             <%= f.submit "Save as draft", name: "draft", class: "btn btn-default" %>
             <%= f.submit "Submit for review", name: "submit", class: "btn btn-primary" %>
           <% else %>
+            <%= f.submit "Withdraw proposal", name: "withdraw", class: "btn btn-danger" %>
             <%= f.submit "Save changes", name: "submit", class: "btn btn-primary" %>
           <% end %>
         </div>

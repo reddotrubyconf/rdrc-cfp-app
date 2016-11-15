@@ -54,7 +54,13 @@ class My::PapersController < ApplicationController
   end
 
   def paper_status
-    params[:draft] ? :draft : :submitted
+    if params[:draft]
+      :draft
+    elsif params[:withdraw]
+      :withdrawn
+    else
+      :submitted
+    end
   end
 
   def find_paper
