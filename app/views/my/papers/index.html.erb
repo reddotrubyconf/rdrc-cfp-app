@@ -8,6 +8,7 @@
 
         <h2><%= paper.title %></h2>
         <span class="label label-primary"><%= paper.status %></span>
+        <span class="label label-primary"><%= paper.speaker_slot %></span>
 
         <% if paper.editable? %>
           <%= link_to "Edit", edit_my_paper_path(paper), class: "btn btn-default"%>

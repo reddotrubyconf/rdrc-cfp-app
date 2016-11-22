@@ -7,6 +7,17 @@
       <%= form_for @paper, url: my_papers_path do |f| %>
 
         <div class="form-group">
+          <div class="row">
+            <% Paper.speaker_slots.keys.each do |slot| %>
+              <div class="col-xs-12 col-sm-6">
+                <%= f.radio_button :speaker_slot, slot %>
+                <%= f.label "speaker_slot_#{slot}", t("speaker_slot.#{slot}") %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="form-group">
           <%= f.label :title %>
           <%= f.text_field :title, class: "form-control" %>
         </div>
@@ -20,6 +31,7 @@
           <%= f.submit "Save as draft", name: "draft", class: "btn btn-default" %>
           <%= f.submit "Submit for review", name: "submit", class: "btn btn-primary" %>
         </div>
+
       <% end %>
     </div>
   </div>
