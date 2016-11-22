@@ -4,8 +4,9 @@ FactoryGirl.define do
   sequence(:email) { |n| "anakin#{n}@thedarkside.com" }
 
   factory :user do
-    name "Anakin Skywalker"
     email
+
+    name "Anakin Skywalker"
 
     factory :with_papers do
       transient do

@@ -19,4 +19,6 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 en:
-  hello: "world"
+  speaker_slot:
+    lightning: Lightning talk (7 minutes)
+    regular:   Regular talk (25 minutes)

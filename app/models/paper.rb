@@ -4,12 +4,14 @@ class Paper < ApplicationRecord
   with_options unless: :draft? do
     validates :abstract, presence: true
   end
-  validates :title, presence: true
-  validates :status, presence: true
+  validates :title,        presence: true
+  validates :status,       presence: true
+  validates :speaker_slot, presence: true
 
   belongs_to :user, inverse_of: :papers
 
-  enum status: [:draft, :submitted, :accepted, :rejected, :withdrawn].freeze
+  enum status:       [:draft, :submitted, :accepted, :rejected, :withdrawn].freeze
+  enum speaker_slot: [:lightning, :regular].freeze
 
   def editable?
     draft? || submitted?
