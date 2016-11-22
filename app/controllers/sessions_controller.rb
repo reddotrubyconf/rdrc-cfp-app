@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   def create
     sign_in(auth_user)
 
-    redirect_to root_path
+    redirect_to my_papers_path
   end
 
   # DELETE /auth/github
