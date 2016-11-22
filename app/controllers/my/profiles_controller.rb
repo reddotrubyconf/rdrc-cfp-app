@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class My::ProfilesController < ApplicationController
+  layout "cfp"
+
   before_action :authenticate!
 
   # GET /profile

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "my/papers#index"
+  root "pages#home"
 
   namespace :my do
     resources :papers,  only: [:new, :create, :index, :show, :edit, :update]

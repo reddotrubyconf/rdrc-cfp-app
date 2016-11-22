@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class My::PapersController < ApplicationController
+  layout "cfp"
+
   before_action :authenticate!
 
   # GET /papers
