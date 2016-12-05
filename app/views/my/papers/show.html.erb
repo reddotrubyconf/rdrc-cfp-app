@@ -6,7 +6,11 @@
       <span class="label label-primary"><%= @paper.status %></span>
       <span class="label label-primary"><%= @paper.speaker_slot %></span>
 
+      <h2>Abstract</h2>
       <p><%= @paper.abstract %></p>
+
+      <h2>Outline</h2>
+      <p><%= @paper.outline %></p>
 
       <div class="text-right">
         <% if @paper.editable? %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161122071159) do
+ActiveRecord::Schema.define(version: 20161205095042) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20161122071159) do
     t.integer "status",       default: 1, null: false
     t.integer "user_id"
     t.integer "speaker_slot", default: 1, null: false
+    t.text    "outline"
     t.index ["user_id"], name: "index_papers_on_user_id", using: :btree
   end
 
