@@ -25,7 +25,14 @@
 
         <div class="form-group">
           <%= f.label :abstract %>
+          <small>(We will put this on the website if your talk is selected.)</small>
           <%= f.text_area :abstract, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :outline %>
+          <small>(This can only be seen by the review board and organizing committee.)</small>
+          <%= f.text_area :outline, class: "form-control" %>
         </div>
 
         <div class="form-controls text-right">

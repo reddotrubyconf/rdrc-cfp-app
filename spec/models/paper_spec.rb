@@ -9,6 +9,7 @@ RSpec.describe Paper, type: :model do
 
   it { is_expected.to validate_presence_of(:title) }
   it { is_expected.to validate_presence_of(:abstract) }
+  it { is_expected.to validate_presence_of(:outline) }
   it { is_expected.to validate_presence_of(:status) }
   it { is_expected.to validate_presence_of(:speaker_slot) }
 
