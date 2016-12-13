@@ -33,5 +33,8 @@ Style/StringLiterals:
 Metrics/LineLength:
   Max: 120
 
+Bundler/OrderedGems:
+  Enabled: false
+
 Rails:
   Enabled: true
