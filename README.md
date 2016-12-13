@@ -1,5 +1,7 @@
 # RDRC'17 Website & CFP Application
 
+[![Build Status](https://travis-ci.org/reddotrubyconf/rdrc17-website.svg?branch=maintenance%2Ftravis-integration)](https://travis-ci.org/reddotrubyconf/rdrc17-website)
+
 This is the Rails app that powers the website and CFP application for RedDotRubyConf 2017.
 
 ## Reporting Bugs
