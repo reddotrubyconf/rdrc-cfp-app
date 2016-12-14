@@ -1,6 +1,9 @@
 language: ruby
 services:
   - postgresql
+addons:
+  code_climate:
+    repo_token: 48869465be412467cb8d6d144d84746c7201e257998ada2b6d850346d10eada5
 cache: bundler
 before_script:
   - cp config/database.yml.travis config/database.yml
