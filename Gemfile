@@ -25,6 +25,8 @@ group :test do
   gem "rspec-rails"
   gem "factory_girl_rails"
   gem "shoulda-matchers", require: false
+  gem "simplecov"
+  gem "codeclimate-test-reporter"
 end
 
 group :development, :test do

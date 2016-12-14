@@ -5,3 +5,5 @@ cache: bundler
 before_script:
   - cp config/database.yml.travis config/database.yml
   - bundle exec rails db:setup RAILS_ENV=test
+after_success:
+  - bundle exec codeclimate-test-reporter
