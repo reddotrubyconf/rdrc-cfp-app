@@ -13,3 +13,9 @@
 
 # Ignore local environment variables
 .env
+
+# Ignore local database configuration
+/config/database.yml
+
+# Ignore local coverage date
+/coverage
