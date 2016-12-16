@@ -20,4 +20,21 @@ RSpec.describe My::ProfilesController, type: :controller do
 
     it { expect(response).to have_http_status(:success) }
   end
+
+  describe "#update" do
+    let(:user) { FactoryGirl.create(:user) }
+
+    context "with valid params" do
+      before { patch :update, params: { id: user.id, user: FactoryGirl.attributes_for(:user, bio: "Hello world!") } }
+
+      it { expect(response).to have_http_status(:found) }
+    end
+
+    context "with invalid params" do
+      before { patch :update, params: { id: user.id, user: FactoryGirl.attributes_for(:user, :invalid) } }
+
+      it { is_expected.to set_flash[:error] }
+      it { expect(response).to have_http_status(:success) }
+    end
+  end
 end

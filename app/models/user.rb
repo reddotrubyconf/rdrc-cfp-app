@@ -3,6 +3,7 @@
 class User < ApplicationRecord
   validates :name,  presence: true
   validates :email, presence: true, uniqueness: true
+  validates :bio,   presence: true, on: :update
 
   has_many :papers, inverse_of: :user
 
