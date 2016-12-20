@@ -9,7 +9,12 @@
         <span>Singapore</span>
       </div>
 
-      <%= link_to "Submit a Paper", new_my_paper_path, class: "btn btn-lg btn-success" %>
+      <%= link_to new_my_paper_path, class: "btn btn-lg btn-success" do %>
+        <%= fa_icon "github" %>
+        Submit a Paper
+      <% end %>
+
+      <p class="btn-subtitle">(We'll ask you to authorize through GitHub.)</p>
     </div>
   </div>
 </div>

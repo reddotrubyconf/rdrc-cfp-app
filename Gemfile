@@ -13,6 +13,8 @@ gem "puma", "~> 3.0"
 gem "sass-rails"
 gem "bootstrap-sass"
 
+gem "font-awesome-rails"
+
 gem "uglifier"
 gem "jquery-rails"
 

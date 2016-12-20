@@ -65,6 +65,8 @@ GEM
       railties (>= 3.0.0)
     faraday (0.9.2)
       multipart-post (>= 1.2, < 3)
+    font-awesome-rails (4.7.0.0)
+      railties (>= 3.2, < 5.1)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     hashie (3.4.6)
@@ -216,6 +218,7 @@ DEPENDENCIES
   codeclimate-test-reporter
   dotenv-rails
   factory_girl_rails
+  font-awesome-rails
   jquery-rails
   omniauth
   omniauth-github
