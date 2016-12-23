@@ -6,8 +6,9 @@ We welcome all contributions. Follow the instructions below to make your first p
 
   1. Fork this repository and clone it.
   2. Enter the project directory and run `bundle install`.
-  3. Set up the database using `rails db:create db:migrate db:seed`.
-  4. Start up the server using `rails server`.
+  3. Create `database.yml` using `cp ./config/database.yml.sample ./config/database.yml`
+  4. Set up the database using `rails db:create db:migrate db:seed`.
+  5. Start up the server using `rails server`.
 
 ## Submitting Pull Requests
 
