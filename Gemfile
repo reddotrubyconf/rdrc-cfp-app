@@ -23,6 +23,8 @@ gem "turbolinks"
 gem "omniauth"
 gem "omniauth-github"
 
+gem "httparty"
+
 group :test do
   gem "rspec-rails"
   gem "factory_girl_rails"
