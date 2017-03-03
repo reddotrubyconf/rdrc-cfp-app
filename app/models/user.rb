@@ -7,6 +7,8 @@ class User < ApplicationRecord
 
   has_many :papers, inverse_of: :user
 
+  enum role: [:speaker, :cleaner, :reviewer, :curator].freeze
+
   def self.create_from_auth!(auth)
     create! do |user|
       user.name       = auth.dig(:info, :name)

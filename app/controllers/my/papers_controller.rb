@@ -4,6 +4,7 @@ class My::PapersController < ApplicationController
   layout "cfp"
 
   before_action :authenticate!
+  before_action :authorize_speaker!
 
   # GET /papers
   def index

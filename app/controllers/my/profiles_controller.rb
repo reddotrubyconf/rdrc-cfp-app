@@ -4,6 +4,7 @@ class My::ProfilesController < ApplicationController
   layout "cfp"
 
   before_action :authenticate!
+  before_action :authorize_speaker!
 
   # GET /profile
   def show

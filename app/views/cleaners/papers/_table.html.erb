@@ -1,0 +1,20 @@
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th colspan="2">Title</th>
+  </tr>
+  </thead>
+
+  <tbody>
+
+  <% papers.each do |paper| %>
+
+    <tr>
+      <td><%= paper.title %></td>
+      <td class="text-right"><%= link_to "Scrub", edit_cleaners_paper_path(paper), class: "btn btn-default" %></td>
+    </tr>
+
+  <% end %>
+
+  </tbody>
+</table>

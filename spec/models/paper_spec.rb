@@ -13,7 +13,7 @@ RSpec.describe Paper, type: :model do
   it { is_expected.to validate_presence_of(:status) }
   it { is_expected.to validate_presence_of(:speaker_slot) }
 
-  it { is_expected.to define_enum_for(:status).with([:draft, :submitted, :accepted, :rejected, :withdrawn]) }
+  it { is_expected.to define_enum_for(:status).with([:draft, :submitted, :scrubbed, :accepted, :rejected, :withdrawn]) }
   it { is_expected.to define_enum_for(:speaker_slot).with([:lightning, :regular]) }
 
   describe "#editable?" do
