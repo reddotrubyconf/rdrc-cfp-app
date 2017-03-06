@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>Scrub outline</h1>
+    </div>
+
+    <%= form_for @paper, url: cleaners_paper_path(@paper), method: :patch do |f| %>
+
+      <div class="col-xs-12 col-sm-6">
+        <div class="form-group">
+          <%= f.label :original_outline %>
+          <%= f.text_area :outline, class: "form-control tall", disabled: true %>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-6">
+        <div class="form-group">
+          <%= f.label :scrubbed_outline %>
+          <%= f.text_area :scrubbed_outline, value: @paper.scrubbed_outline.presence || @paper.outline, class: "form-control tall" %>
+        </div>
+      </div>
+
+      <div class="col-xs-12">
+        <div class="form-controls text-right">
+          <%= f.submit "Save changes", class: "btn btn-primary" %>
+        </div>
+      </div>
+
+    <% end %>
+
+  </div>
+</div>

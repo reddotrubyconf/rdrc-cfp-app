@@ -7,7 +7,11 @@ class SessionsController < ApplicationController
   def create
     sign_in(auth_user)
 
-    redirect_to my_papers_path
+    if auth_user.speaker?
+      redirect_to my_papers_path
+    elsif auth_user.cleaner?
+      redirect_to cleaners_papers_path
+    end
   end
 
   # DELETE /auth/github

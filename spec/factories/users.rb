@@ -21,5 +21,9 @@ FactoryGirl.define do
     trait :invalid do
       name ""
     end
+
+    trait :cleaner do
+      role :cleaner
+    end
   end
 end

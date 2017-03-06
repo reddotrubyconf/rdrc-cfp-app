@@ -12,7 +12,11 @@
   </head>
 
   <body>
-    <%= render "layouts/header" %>
+    <% if current_user.cleaner? %>
+      <%= render "layouts/cleaner_header" %>
+    <% else %>
+      <%= render "layouts/speaker_header" %>
+    <% end %>
     <%= flash_messages %>
 
     <%= yield %>

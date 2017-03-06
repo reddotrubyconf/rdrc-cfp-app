@@ -9,6 +9,14 @@ class ApplicationController < ActionController::Base
     redirect_to sign_in_github_path unless current_user
   end
 
+  def authorize_cleaner!
+    redirect_to root_path unless current_user.cleaner?
+  end
+
+  def authorize_speaker!
+    redirect_to root_path unless current_user.speaker?
+  end
+
   def current_user
     User.find_by(id: session[:user_id])
   end

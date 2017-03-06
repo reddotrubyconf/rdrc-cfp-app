@@ -6,6 +6,10 @@ Rails.application.routes.draw do
     resource  :profile, only: [:show, :edit, :update]
   end
 
+  namespace :cleaners do
+    resources :papers, only: [:index, :edit, :update]
+  end
+
   scope :auth do
     resource :github, only: :none do
       get    :callback, to: "sessions#create"
