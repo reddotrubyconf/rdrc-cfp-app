@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-8">
+      <h1><%= @paper.title %></h1>
+    </div>
+
+    <div class="col-xs-12 col-sm-8">
+        <p><%= @paper.scrubbed_outline %></p>
+    </div>
+
+    <%= form_for @review, url: board_paper_reviews_path(@paper), method: :post do |f| %>
+
+      <div class="col-xs-12 col-sm-4">
+        <div class="form-group">
+          <%= f.label :comments %>
+          <%= f.text_area :comments, value: @review.comments, class: "form-control short" %>
+        </div>
+
+        <div class="form-group">
+          <div class="row">
+            <div class="col-xs-12 col-sm-2">
+              <%= f.label :score %>
+            </div>
+            <% Review.scores.each do |score| %>
+                <div class="col-xs-12 col-sm-2">
+                  <%= f.radio_button :score, score %>
+                  <%= f.label "score_#{score}", score %>
+                </div>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="form-controls">
+          <%= f.submit "Save", class: "btn btn-primary" %>
+        </div>
+      </div>
+
+    <% end %>
+
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      <h1>Unreviewed</h1>
+
+      <%= render "table", papers: @papers.unreviewed.includes(:reviews) %>
+    </div>
+
+    <div class="col-xs-12 col-sm-6">
+      <h1>Reviewed</h1>
+
+      <%= render "table", papers: @papers.reviewed.includes(:reviews) %>
+    </div>
+  </div>
+</div>

@@ -14,5 +14,16 @@ FactoryGirl.define do
     trait :invalid do
       title ""
     end
+
+    trait :scrubbed do
+      status           :scrubbed
+      scrubbed_outline "Possibly the *second* best paper ever submitted."
+    end
+
+    trait :with_review do
+      after(:create) do |paper|
+        create_list :review, 1, paper: paper
+      end
+    end
   end
 end

@@ -6,6 +6,7 @@ RSpec.describe User, type: :model do
   subject(:model) { FactoryGirl.build(:user) }
 
   it { is_expected.to have_many(:papers).inverse_of(:user) }
+  it { is_expected.to have_many(:reviews).inverse_of(:user) }
 
   it { is_expected.to validate_presence_of(:name) }
   it { is_expected.to validate_presence_of(:email) }

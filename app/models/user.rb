@@ -5,7 +5,8 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   validates :bio,   presence: true, on: :update
 
-  has_many :papers, inverse_of: :user
+  has_many :papers,  inverse_of: :user
+  has_many :reviews, inverse_of: :user
 
   enum role: [:speaker, :cleaner, :reviewer, :curator].freeze
 

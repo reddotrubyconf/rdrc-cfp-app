@@ -1,0 +1,23 @@
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Title</th>
+    <th class="text-center">Score</th>
+    <th></th>
+  </tr>
+  </thead>
+
+  <tbody>
+
+  <% papers.each do |paper| %>
+
+    <tr>
+      <td><%= paper.title %></td>
+      <td class="text-center"><%= paper.review_by(current_user).score %></td>
+      <td class="text-right"><%= link_to "Review", new_board_paper_review_path(paper), class: "btn btn-default" %></td>
+    </tr>
+
+  <% end %>
+
+  </tbody>
+</table>
