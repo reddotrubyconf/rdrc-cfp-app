@@ -14,7 +14,7 @@
 
       <div class="text-right">
         <% if @paper.editable? %>
-          <%= link_to "Edit", edit_my_paper_path(@paper), class: "btn btn-default" %>
+          <%= link_to "Edit", edit_my_paper_path(@paper), class: "btn btn-default", disabled: current_conference.cfp_closed? %>
         <% end %>
       </div>
 

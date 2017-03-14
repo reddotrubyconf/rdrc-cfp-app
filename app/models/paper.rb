@@ -1,4 +1,4 @@
-# frozen_string_literal:true
+# frozen_string_literal: true
 
 class Paper < ApplicationRecord
   default_scope -> { order(created_at: :desc) }

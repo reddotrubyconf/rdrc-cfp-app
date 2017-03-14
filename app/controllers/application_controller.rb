@@ -21,4 +21,9 @@ class ApplicationController < ActionController::Base
     User.find_by(id: session[:user_id])
   end
   helper_method :current_user
+
+  def current_conference
+    Conference.latest
+  end
+  helper_method :current_conference
 end
