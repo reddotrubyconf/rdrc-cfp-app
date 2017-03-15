@@ -5,6 +5,7 @@ class My::PapersController < ApplicationController
 
   before_action :authenticate!
   before_action :authorize_speaker!
+  before_action :check_closing_time!, only: [:new, :create, :edit, :update]
 
   # GET /papers
   def index
@@ -68,5 +69,11 @@ class My::PapersController < ApplicationController
 
   def find_paper
     current_user.papers.find(params[:id])
+  end
+
+  def check_closing_time!
+    return if current_conference.cfp_open?
+
+    redirect_to my_papers_path, flash: { notice: "The CFP for this year's RDRC has closed" }
   end
 end

@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170303143121) do
+ActiveRecord::Schema.define(version: 20170314113845) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "conferences", force: :cascade do |t|
+    t.string   "name",          null: false
+    t.datetime "cfp_closes_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
 
   create_table "papers", force: :cascade do |t|
     t.string   "title",                        null: false
@@ -26,6 +33,17 @@ ActiveRecord::Schema.define(version: 20170303143121) do
     t.datetime "updated_at"
     t.text     "scrubbed_outline"
     t.index ["user_id"], name: "index_papers_on_user_id", using: :btree
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "paper_id"
+    t.integer  "score",      null: false
+    t.text     "comments"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["paper_id"], name: "index_reviews_on_paper_id", using: :btree
+    t.index ["user_id"], name: "index_reviews_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
