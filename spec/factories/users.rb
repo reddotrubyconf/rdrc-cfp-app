@@ -13,7 +13,7 @@ FactoryGirl.define do
         paper_count 1
       end
 
-      after(:create) do |user, evaluator|
+      after(:create) do |user|
         create_list :paper, paper_count, user: user
       end
     end
@@ -24,6 +24,10 @@ FactoryGirl.define do
 
     trait :cleaner do
       role :cleaner
+    end
+
+    trait :reviewer do
+      role :reviewer
     end
   end
 end

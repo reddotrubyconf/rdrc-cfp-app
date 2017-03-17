@@ -3,6 +3,10 @@
 class Paper < ApplicationRecord
   default_scope -> { order(created_at: :desc) }
 
+  belongs_to :user, inverse_of: :papers
+
+  has_many :reviews, inverse_of: :paper
+
   with_options unless: :draft? do
     validates :abstract, presence: true
     validates :outline,  presence: true
@@ -14,12 +18,14 @@ class Paper < ApplicationRecord
   validates :status,       presence: true
   validates :speaker_slot, presence: true
 
-  belongs_to :user, inverse_of: :papers
-
   enum status:       [:draft, :submitted, :scrubbed, :accepted, :rejected, :withdrawn].freeze
   enum speaker_slot: [:lightning, :regular].freeze
 
   def editable?
     draft? || submitted?
+  end
+
+  def review_by(user)
+    reviews.find_by(user: user) || NoReview.new
   end
 end

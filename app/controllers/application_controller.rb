@@ -17,6 +17,10 @@ class ApplicationController < ActionController::Base
     redirect_to root_path unless current_user.speaker?
   end
 
+  def authorize_reviewer!
+    redirect_to root_path unless current_user.reviewer?
+  end
+
   def current_user
     User.find_by(id: session[:user_id])
   end

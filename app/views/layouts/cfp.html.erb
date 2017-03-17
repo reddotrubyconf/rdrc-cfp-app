@@ -14,6 +14,8 @@
   <body>
     <% if current_user.cleaner? %>
       <%= render "layouts/cleaner_header" %>
+    <% elsif current_user.reviewer? %>
+      <%= render "layouts/board_header" %>
     <% else %>
       <%= render "layouts/speaker_header" %>
     <% end %>

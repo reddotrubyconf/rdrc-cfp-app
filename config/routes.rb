@@ -10,6 +10,12 @@ Rails.application.routes.draw do
     resources :papers, only: [:index, :edit, :update]
   end
 
+  namespace :board do
+    resources :papers, only: [:index] do
+      resources :reviews, only: [:new, :create]
+    end
+  end
+
   scope :auth do
     resource :github, only: :none do
       get    :callback, to: "sessions#create"

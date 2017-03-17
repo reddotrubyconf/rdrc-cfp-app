@@ -7,11 +7,7 @@ class SessionsController < ApplicationController
   def create
     sign_in(auth_user)
 
-    if auth_user.speaker?
-      redirect_to my_papers_path
-    elsif auth_user.cleaner?
-      redirect_to cleaners_papers_path
-    end
+    redirect_to_dashboard
   end
 
   # DELETE /auth/github
@@ -34,6 +30,16 @@ class SessionsController < ApplicationController
 
   def sign_out
     session.delete(:user_id)
+  end
+
+  def redirect_to_dashboard
+    if auth_user.cleaner?
+      redirect_to cleaners_papers_path
+    elsif auth_user.reviewer?
+      redirect_to board_papers_path
+    else
+      redirect_to my_papers_path
+    end
   end
 
   def missing_credentials
