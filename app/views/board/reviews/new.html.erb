@@ -6,7 +6,7 @@
     </div>
 
     <div class="col-xs-12 col-sm-8">
-      <p><%= @paper.scrubbed_outline %></p>
+      <p><%= simple_format @paper.scrubbed_outline %></p>
     </div>
 
     <%= form_for @review, url: board_paper_reviews_path(@paper), method: :post do |f| %>
