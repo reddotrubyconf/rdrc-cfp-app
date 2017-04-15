@@ -16,6 +16,8 @@
       <%= render "layouts/cleaner_header" %>
     <% elsif current_user.reviewer? %>
       <%= render "layouts/board_header" %>
+    <% elsif current_user.organizer? %>
+      <%= render "layouts/organizer_header" %>
     <% else %>
       <%= render "layouts/speaker_header" %>
     <% end %>

@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :papers,  inverse_of: :user
   has_many :reviews, inverse_of: :user
 
-  enum role: [:speaker, :cleaner, :reviewer, :curator].freeze
+  enum role: [:speaker, :cleaner, :reviewer, :organizer].freeze
 
   def self.create_from_auth!(auth)
     create! do |user|

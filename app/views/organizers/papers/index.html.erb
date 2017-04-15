@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>Reviewed</h1>
+
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>Title</th>
+          <th class="text-center">Review Score</th>
+          <th></th>
+        </tr>
+        </thead>
+
+        <tbody>
+
+        <% @papers.each do |paper| %>
+
+            <tr>
+              <td><%= paper.title %></td>
+              <td class="text-center"><%= number_with_precision paper.review_score, precision: 2 %></td>
+              <td class="text-right"><%= link_to "Show", organizers_paper_path(paper), class: "btn btn-default" %></td>
+            </tr>
+
+        <% end %>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

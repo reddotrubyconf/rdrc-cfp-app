@@ -29,5 +29,9 @@ FactoryGirl.define do
     trait :reviewer do
       role :reviewer
     end
+
+    trait :organizer do
+      role :organizer
+    end
   end
 end
