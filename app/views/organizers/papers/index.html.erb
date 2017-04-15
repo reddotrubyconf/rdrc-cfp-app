@@ -7,6 +7,7 @@
         <thead>
         <tr>
           <th>Title</th>
+          <th>Speaker</th>
           <th class="text-center">Review Score</th>
           <th></th>
         </tr>
@@ -17,7 +18,11 @@
         <% @papers.each do |paper| %>
 
             <tr>
-              <td><%= paper.title %></td>
+              <td>
+                <%= paper.title %>
+                <span class="label label-primary"><%= paper.speaker_slot %></span>
+              </td>
+              <td><%= paper.user.name %></td>
               <td class="text-center"><%= number_with_precision paper.review_score, precision: 2 %></td>
               <td class="text-right"><%= link_to "Show", organizers_paper_path(paper), class: "btn btn-default" %></td>
             </tr>
