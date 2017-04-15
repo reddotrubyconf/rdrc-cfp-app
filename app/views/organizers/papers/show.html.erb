@@ -19,7 +19,7 @@
           <h3 class="panel-title">Review score</h3>
         </div>
         <div class="panel-body text-center">
-          <%= @paper.review_score %>
+          <%= number_with_precision @paper.review_score, precision: 2 %> (±<%= number_with_precision @paper.review_score_diff, precision: 2 %>)
         </div>
       </div>
 
