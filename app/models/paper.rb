@@ -32,12 +32,12 @@ class Paper < ApplicationRecord
   def review_score
     return 0 if reviews.none?
 
-    (reviews.sum(:score) / reviews.count).round(2)
+    (reviews.sum(:score).to_f / reviews.count).round(2)
   end
 
   def review_score_diff
     return 0 if reviews.none?
 
-    (review_score - reviews.minimum(:score)).round(2)
+    (review_score.to_f - reviews.minimum(:score)).round(2)
   end
 end
