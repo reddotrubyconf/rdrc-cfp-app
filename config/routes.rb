@@ -16,6 +16,10 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :organizers do
+    resources :papers, only: [:index, :show]
+  end
+
   scope :auth do
     resource :github, only: :none do
       get    :callback, to: "sessions#create"

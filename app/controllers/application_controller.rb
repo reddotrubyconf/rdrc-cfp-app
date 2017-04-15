@@ -21,6 +21,10 @@ class ApplicationController < ActionController::Base
     redirect_to root_path unless current_user.reviewer?
   end
 
+  def authorize_organizer!
+    redirect_to root_path unless current_user.organizer?
+  end
+
   def current_user
     User.find_by(id: session[:user_id])
   end

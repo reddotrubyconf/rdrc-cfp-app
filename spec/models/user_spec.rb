@@ -13,7 +13,7 @@ RSpec.describe User, type: :model do
   it { is_expected.to validate_uniqueness_of(:email) }
   it { is_expected.to validate_presence_of(:bio).on(:update) }
 
-  it { is_expected.to define_enum_for(:role).with([:speaker, :cleaner, :reviewer, :curator]) }
+  it { is_expected.to define_enum_for(:role).with([:speaker, :cleaner, :reviewer, :organizer]) }
 
   describe ".create_from_auth" do
     context "with valid attributes" do

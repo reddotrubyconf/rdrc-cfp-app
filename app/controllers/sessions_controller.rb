@@ -37,6 +37,8 @@ class SessionsController < ApplicationController
       redirect_to cleaners_papers_path
     elsif auth_user.reviewer?
       redirect_to board_papers_path
+    elsif auth_user.organizer?
+      redirect_to organizers_papers_path
     else
       redirect_to my_papers_path
     end

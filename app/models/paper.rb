@@ -28,4 +28,10 @@ class Paper < ApplicationRecord
   def review_by(user)
     reviews.find_by(user: user) || NoReview.new
   end
+
+  def review_score
+    return 0 if reviews.none?
+
+    (reviews.sum(:score) / reviews.count).round(3)
+  end
 end

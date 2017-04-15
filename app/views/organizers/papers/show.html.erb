@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-8">
+
+      <h1><%= @paper.title %></h1>
+      <span class="label label-primary"><%= @paper.speaker_slot %></span>
+
+      <h2>Abstract</h2>
+      <p><%= simple_format @paper.abstract %></p>
+
+      <h2>Outline</h2>
+      <p><%= simple_format @paper.outline %></p>
+
+    </div>
+
+    <div class="col-xs-12 col-sm-4">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Review score</h3>
+        </div>
+        <div class="panel-body text-center">
+          <%= @paper.review_score %>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Review comments</h3>
+        </div>
+        <div class="panel-body">
+          <% @paper.reviews.each do |review| %>
+            <%= review.comments %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
