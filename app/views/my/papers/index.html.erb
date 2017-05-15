@@ -6,7 +6,7 @@
 
       <% @papers.each do |paper| %>
 
-        <h2><%= paper.title %></h2>
+        <h2><%= link_to paper.title, my_paper_path(paper) %></h2>
         <span class="label label-primary"><%= paper.status %></span>
         <span class="label label-primary"><%= paper.speaker_slot %></span>
 
